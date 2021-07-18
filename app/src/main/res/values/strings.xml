@@ -4,6 +4,7 @@
     <!--  TasksFragment  -->
     <string name="fragment_title_tasks">Task List</string>
     <string name="fab_add_button_content_desc">Add task button</string>
+    <string name="list_item_task_due_date">Due: %1$s</string>
 
     <!--  TaskDetailFragment  -->
     <string name="fragment_title_task_detail">Task Detail</string>

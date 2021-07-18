@@ -1,11 +1,13 @@
 package com.davek.taskapp.tasks
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.davek.taskapp.R
 import com.davek.taskapp.databinding.FragmentTasksBinding
 
@@ -13,6 +15,7 @@ class TasksFragment : Fragment() {
 
     private lateinit var binding: FragmentTasksBinding
     private val tasksViewModel: TasksViewModel by viewModels()
+    private lateinit var taskAdapter: TaskAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,6 +27,7 @@ class TasksFragment : Fragment() {
         binding.tasksVm = tasksViewModel
         binding.lifecycleOwner = viewLifecycleOwner
         subscribeViewModel()
+        setupTaskList()
 
         return binding.root
     }
@@ -33,6 +37,22 @@ class TasksFragment : Fragment() {
             findNavController().navigate(
                 TasksFragmentDirections.actionTasksFragmentToTaskDetailFragment()
             )
+        }
+    }
+
+    private fun setupTaskList() {
+        val viewModel = binding.tasksVm
+        if (viewModel != null) {
+            taskAdapter = TaskAdapter(tasksViewModel)
+            binding.listTask.adapter = taskAdapter
+            binding.listTask.addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    DividerItemDecoration.VERTICAL
+                )
+            )
+        } else {
+            Log.e("TasksFragment", "TasksViewModel not initialized when attempting to set up TaskAdapter")
         }
     }
 
