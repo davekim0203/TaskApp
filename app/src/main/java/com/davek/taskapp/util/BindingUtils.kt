@@ -19,6 +19,13 @@ fun TextView.setListItemTaskDueDateText(task: Task?) {
     }
 }
 
+@BindingAdapter("taskDueDate")
+fun TextView.setTaskDueDateText(date: Date?) {
+    date?.let {
+        text = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(it)
+    }
+}
+
 @BindingAdapter("tasks")
 fun setTasks(listView: RecyclerView, tasks: List<Task>?) {
     tasks?.let {

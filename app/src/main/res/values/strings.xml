@@ -10,5 +10,16 @@
     <string name="fragment_title_task_detail">Task Detail</string>
     <string name="menu_delete">Delete</string>
     <string name="menu_save">Save</string>
+    <string name="title_task_title">Title</string>
+    <string name="title_task_due_date">Due Date</string>
+    <string name="title_task_description">Description</string>
+    <string name="dialog_delete_task_title">Delete Task</string>
+    <string name="dialog_delete_task_message">Do you want to delete this task?</string>
+    <string name="dialog_delete_task_positive_button">Delete</string>
+    <string name="dialog_delete_task_negative_button">Cancel</string>
+    <string name="snackbar_message_task_deleted">Task deleted</string>
+    <string name="snackbar_message_title_required">Title is required</string>
+    <string name="edit_text_hint_required_field">(required)</string>
+    <string name="edit_text_hint_optional_field">(optional)</string>
 
 </resources>

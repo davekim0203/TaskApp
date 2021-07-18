@@ -35,9 +35,9 @@ class TasksFragment : Fragment() {
     }
 
     private fun subscribeViewModel() {
-        tasksViewModel.navigateToTaskDetail.observe(viewLifecycleOwner) {
+        tasksViewModel.navigateToTaskDetail.observe(viewLifecycleOwner) { taskId ->
             findNavController().navigate(
-                TasksFragmentDirections.actionTasksFragmentToTaskDetailFragment()
+                TasksFragmentDirections.actionTasksFragmentToTaskDetailFragment(taskId)
             )
         }
     }

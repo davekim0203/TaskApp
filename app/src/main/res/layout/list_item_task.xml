@@ -31,7 +31,7 @@
             android:layout_marginRight="20dp"
             android:textColor="@color/black"
             android:textSize="22sp"
-            tools:text="Milk"
+            tools:text="Task title"
             app:text="@{task.title}"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintEnd_toStartOf="@+id/tv_due_date"

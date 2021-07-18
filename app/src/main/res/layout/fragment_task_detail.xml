@@ -9,19 +9,136 @@
             type="com.davek.taskapp.taskdetail.TaskDetailViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".taskdetail.TaskDetailFragment">
-
-        <TextView
-            android:layout_width="wrap_content"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Detail screen"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+            android:paddingRight="10dp"
+            tools:context=".taskdetail.TaskDetailFragment">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tv_task_title"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_task_title"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp" />
+
+                <EditText
+                    android:id="@+id/et_task_title"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.7"
+                    android:background="@color/edit_text_background"
+                    android:hint="@string/edit_text_hint_required_field"
+                    android:imeOptions="actionDone"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:text="@={taskDetailVm.taskTitle}"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapSentences" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/horizontal_divider_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tv_due_date"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/title_task_due_date"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvbt_due_date"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.7"
+                    android:gravity="center_vertical|end"
+                    android:onClick="@{() -> taskDetailVm.onDateClick()}"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    app:taskDueDate="@{taskDetailVm.dueDate}"
+                    tools:text="2021-01-02" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/horizontal_divider_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tv_task_description"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:gravity="center_vertical"
+                    android:text="@string/title_task_description"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp" />
+
+                <EditText
+                    android:id="@+id/et_task_description"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.7"
+                    android:background="@color/edit_text_background"
+                    android:gravity="top|start"
+                    android:hint="@string/edit_text_hint_optional_field"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:padding="10dp"
+                    android:text="@={taskDetailVm.taskDescription}"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </layout>

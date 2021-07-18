@@ -7,13 +7,11 @@ import com.davek.taskapp.data.Task
 import com.davek.taskapp.data.TaskRepository
 import com.davek.taskapp.util.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
 class TasksViewModel @Inject constructor(
-    private val taskRepository: TaskRepository
+    taskRepository: TaskRepository
 ): ViewModel() {
 
     private val _tasks: LiveData<List<Task>> =
@@ -35,28 +33,14 @@ class TasksViewModel @Inject constructor(
         get() = _navigateToTaskDetail
 
     fun onAddButtonClick() {
-//        _navigateToTaskDetail.call()
-        //TODO: remove temp code
-        val task = Task(
-            title = "Test Task",
-            description = "Test Description",
-            dueDate = getCalendarInstance().time
-        )
-        insertTask(task)
+        _navigateToTaskDetail.value = DEFAULT_TASK_ID
     }
 
     fun onTaskClick(taskId: Long) {
         _navigateToTaskDetail.value = taskId
     }
 
-    private fun getCalendarInstance(): Calendar = Calendar.getInstance().apply {
-        set(Calendar.HOUR_OF_DAY, 0)
-        set(Calendar.MINUTE, 0)
-        set(Calendar.SECOND, 0)
-        set(Calendar.MILLISECOND, 0)
-    }
-
-    private fun insertTask(task: Task) = viewModelScope.launch {
-        taskRepository.insertTask(task)
+    companion object {
+        const val DEFAULT_TASK_ID = -1L
     }
 }
