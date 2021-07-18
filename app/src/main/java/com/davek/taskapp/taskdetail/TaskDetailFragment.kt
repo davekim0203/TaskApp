@@ -8,7 +8,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.davek.taskapp.R
 import com.davek.taskapp.databinding.FragmentTaskDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TaskDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentTaskDetailBinding

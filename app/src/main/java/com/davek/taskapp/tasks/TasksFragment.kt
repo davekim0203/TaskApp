@@ -10,7 +10,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.davek.taskapp.R
 import com.davek.taskapp.databinding.FragmentTasksBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TasksFragment : Fragment() {
 
     private lateinit var binding: FragmentTasksBinding
