@@ -24,7 +24,26 @@ class TaskDetailFragment : Fragment() {
         )
         binding.taskDetailVm = taskDetailViewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        setHasOptionsMenu(true)
 
         return binding.root
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.task_detail_fragment_menu, menu)
+        //TODO: hide delete option when it is new task
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) =
+        when (item.itemId) {
+            R.id.menu_save -> {
+                //TODO
+                true
+            }
+            R.id.menu_delete -> {
+                //TODO
+                true
+            }
+            else -> false
+        }
 }

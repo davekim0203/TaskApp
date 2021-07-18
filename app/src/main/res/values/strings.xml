@@ -2,5 +2,12 @@
     <string name="app_name">TaskApp</string>
 
     <!--  TasksFragment  -->
+    <string name="fragment_title_tasks">Task List</string>
     <string name="fab_add_button_content_desc">Add task button</string>
+
+    <!--  TaskDetailFragment  -->
+    <string name="fragment_title_task_detail">Task Detail</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_save">Save</string>
+
 </resources>

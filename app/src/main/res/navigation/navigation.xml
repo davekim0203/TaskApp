@@ -8,7 +8,7 @@
         android:id="@+id/tasks_fragment"
         android:name="com.davek.taskapp.tasks.TasksFragment"
         tools:layout="@layout/fragment_tasks"
-        android:label="Task List">
+        android:label="@string/fragment_title_tasks">
 
         <action
             android:id="@+id/action_TasksFragment_to_TaskDetailFragment"
@@ -23,7 +23,7 @@
         android:id="@+id/task_detail_fragment"
         android:name="com.davek.taskapp.taskdetail.TaskDetailFragment"
         tools:layout="@layout/fragment_task_detail"
-        android:label="Task Detail">
+        android:label="@string/fragment_title_task_detail">
 
         <argument
             android:name="taskId"
